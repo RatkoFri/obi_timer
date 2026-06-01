@@ -1,0 +1,4 @@
+*.out
+*.vcd
+OBI_slave_timer_tb.sv
+simulate.sh

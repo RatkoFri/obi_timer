@@ -1,0 +1,272 @@
+{
+  "extensionVersion": "1.5.3",
+  "fileName": "c:\\Users\\ratko\\Documents\\RVJ1\\obi_timer\\sim\\tb_obi_timer.vcd",
+  "markerTime": 7250,
+  "altMarkerTime": null,
+  "displayTimeUnit": "ps",
+  "selectedSignal": {
+    "name": "tb_obi_timer.dut.cnt_reg",
+    "msb": 63,
+    "lsb": 0
+  },
+  "zoomRatio": 0.13044444986979167,
+  "scrollLeft": 188,
+  "defaultPixelTime": 1000,
+  "displayedSignals": [
+    {
+      "dataType": "netlist-variable",
+      "netlistId": 19,
+      "name": "tb_obi_timer.dut.clk_i",
+      "numberFormat": "binary",
+      "colorIndex": 0,
+      "rowHeight": 1,
+      "verticalScale": 1,
+      "nameType": "fullPath",
+      "customName": "clk_i",
+      "renderType": "binary",
+      "valueLinkEnable": false
+    },
+    {
+      "dataType": "netlist-variable",
+      "netlistId": 32,
+      "name": "tb_obi_timer.dut.rstn_i",
+      "numberFormat": "binary",
+      "colorIndex": 0,
+      "rowHeight": 1,
+      "verticalScale": 1,
+      "nameType": "fullPath",
+      "customName": "rstn_i",
+      "renderType": "binary",
+      "valueLinkEnable": false
+    },
+    {
+      "dataType": "signal-group",
+      "groupName": "ADDR_CHANNEL",
+      "collapseState": 2,
+      "children": [
+        {
+          "dataType": "netlist-variable",
+          "netlistId": 26,
+          "name": "tb_obi_timer.dut.obi_awe_i",
+          "numberFormat": "binary",
+          "colorIndex": 0,
+          "rowHeight": 1,
+          "verticalScale": 1,
+          "nameType": "fullPath",
+          "customName": "obi_awe_i",
+          "renderType": "binary",
+          "valueLinkEnable": false
+        },
+        {
+          "dataType": "netlist-variable",
+          "netlistId": 22,
+          "name": "tb_obi_timer.dut.obi_abe_i",
+          "numberFormat": "hexadecimal",
+          "colorIndex": 0,
+          "rowHeight": 1,
+          "verticalScale": 1,
+          "nameType": "fullPath",
+          "customName": "obi_abe_i",
+          "renderType": "multiBit",
+          "valueLinkEnable": false
+        },
+        {
+          "dataType": "netlist-variable",
+          "netlistId": 21,
+          "name": "tb_obi_timer.dut.obi_aaddr_i",
+          "numberFormat": "hexadecimal",
+          "colorIndex": 0,
+          "rowHeight": 1,
+          "verticalScale": 1,
+          "nameType": "fullPath",
+          "customName": "obi_aaddr_i",
+          "renderType": "multiBit",
+          "valueLinkEnable": false
+        },
+        {
+          "dataType": "netlist-variable",
+          "netlistId": 23,
+          "name": "tb_obi_timer.dut.obi_agnt_o",
+          "numberFormat": "binary",
+          "colorIndex": 0,
+          "rowHeight": 1,
+          "verticalScale": 1,
+          "nameType": "fullPath",
+          "customName": "obi_agnt_o",
+          "renderType": "binary",
+          "valueLinkEnable": false
+        },
+        {
+          "dataType": "netlist-variable",
+          "netlistId": 24,
+          "name": "tb_obi_timer.dut.obi_areq_i",
+          "numberFormat": "binary",
+          "colorIndex": 0,
+          "rowHeight": 1,
+          "verticalScale": 1,
+          "nameType": "fullPath",
+          "customName": "obi_areq_i",
+          "renderType": "binary",
+          "valueLinkEnable": false
+        },
+        {
+          "dataType": "netlist-variable",
+          "netlistId": 25,
+          "name": "tb_obi_timer.dut.obi_awdata_i",
+          "numberFormat": "hexadecimal",
+          "colorIndex": 0,
+          "rowHeight": 1,
+          "verticalScale": 1,
+          "nameType": "fullPath",
+          "customName": "obi_awdata_i",
+          "renderType": "multiBit",
+          "valueLinkEnable": false
+        }
+      ]
+    },
+    {
+      "dataType": "signal-group",
+      "groupName": "RESP",
+      "collapseState": 1,
+      "children": [
+        {
+          "dataType": "netlist-variable",
+          "netlistId": 30,
+          "name": "tb_obi_timer.dut.obi_rvalid_o",
+          "numberFormat": "binary",
+          "colorIndex": 0,
+          "rowHeight": 1,
+          "verticalScale": 1,
+          "nameType": "fullPath",
+          "customName": "obi_rvalid_o",
+          "renderType": "binary",
+          "valueLinkEnable": false
+        },
+        {
+          "dataType": "netlist-variable",
+          "netlistId": 29,
+          "name": "tb_obi_timer.dut.obi_rready_i",
+          "numberFormat": "binary",
+          "colorIndex": 0,
+          "rowHeight": 1,
+          "verticalScale": 1,
+          "nameType": "fullPath",
+          "customName": "obi_rready_i",
+          "renderType": "binary",
+          "valueLinkEnable": false
+        },
+        {
+          "dataType": "netlist-variable",
+          "netlistId": 53,
+          "name": "tb_obi_timer.dut.obi_rerr_o",
+          "numberFormat": "binary",
+          "colorIndex": 0,
+          "rowHeight": 1,
+          "verticalScale": 1,
+          "nameType": "fullPath",
+          "customName": "obi_rerr_o",
+          "renderType": "binary",
+          "valueLinkEnable": false
+        },
+        {
+          "dataType": "netlist-variable",
+          "netlistId": 52,
+          "name": "tb_obi_timer.dut.obi_rdata_o",
+          "numberFormat": "hexadecimal",
+          "colorIndex": 0,
+          "rowHeight": 1,
+          "verticalScale": 1,
+          "nameType": "fullPath",
+          "customName": "obi_rdata_o",
+          "renderType": "multiBit",
+          "valueLinkEnable": false
+        }
+      ]
+    },
+    {
+      "dataType": "signal-group",
+      "groupName": "FSM",
+      "collapseState": 1,
+      "children": [
+        {
+          "dataType": "netlist-variable",
+          "netlistId": 35,
+          "name": "tb_obi_timer.dut.state",
+          "numberFormat": "binary",
+          "colorIndex": 0,
+          "rowHeight": 1,
+          "verticalScale": 1,
+          "nameType": "signalName",
+          "customName": "state",
+          "renderType": "binary",
+          "valueLinkEnable": false
+        }
+      ]
+    },
+    {
+      "dataType": "netlist-variable",
+      "netlistId": 36,
+      "name": "tb_obi_timer.dut.overflow_o",
+      "numberFormat": "binary",
+      "colorIndex": 0,
+      "rowHeight": 1,
+      "verticalScale": 1,
+      "nameType": "fullPath",
+      "customName": "overflow_o",
+      "renderType": "binary",
+      "valueLinkEnable": false
+    },
+    {
+      "dataType": "netlist-variable",
+      "netlistId": 40,
+      "name": "tb_obi_timer.dut.compare_high",
+      "numberFormat": "hexadecimal",
+      "colorIndex": 0,
+      "rowHeight": 1,
+      "verticalScale": 1,
+      "nameType": "fullPath",
+      "customName": "compare_high",
+      "renderType": "multiBit",
+      "valueLinkEnable": false
+    },
+    {
+      "dataType": "netlist-variable",
+      "netlistId": 39,
+      "name": "tb_obi_timer.dut.compare_low",
+      "numberFormat": "hexadecimal",
+      "colorIndex": 0,
+      "rowHeight": 1,
+      "verticalScale": 1,
+      "nameType": "fullPath",
+      "customName": "compare_low",
+      "renderType": "multiBit",
+      "valueLinkEnable": false
+    },
+    {
+      "dataType": "netlist-variable",
+      "netlistId": 41,
+      "name": "tb_obi_timer.dut.cnt_reg",
+      "numberFormat": "hexadecimal",
+      "colorIndex": 0,
+      "rowHeight": 1,
+      "verticalScale": 1,
+      "nameType": "fullPath",
+      "customName": "cnt_reg",
+      "renderType": "multiBit",
+      "valueLinkEnable": false
+    },
+    {
+      "dataType": "netlist-variable",
+      "netlistId": 34,
+      "name": "tb_obi_timer.dut.timer_conf",
+      "numberFormat": "hexadecimal",
+      "colorIndex": 0,
+      "rowHeight": 1,
+      "verticalScale": 1,
+      "nameType": "fullPath",
+      "customName": "timer_conf",
+      "renderType": "multiBit",
+      "valueLinkEnable": false
+    }
+  ]
+}
