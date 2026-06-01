@@ -1,8 +1,6 @@
 module obi_timer #(
     parameter int unsigned ADDR_WIDTH = 32,
-    parameter int unsigned DATA_WIDTH = 32,
-    parameter int unsigned NUM_IN = 8,
-    parameter int unsigned NUM_OUT = 8
+    parameter int unsigned DATA_WIDTH = 32
 ) (
     input logic clk_i,
     input logic rstn_i,
