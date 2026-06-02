@@ -25,8 +25,8 @@ module obi_timer #(
     localparam int unsigned mTimerConfRegOffset = 0;
     localparam int unsigned mTimerLow32RegOffset = 4; 
     localparam int unsigned mTimerHigh32RegOffset = 8;
-    localparam int unsigned mTimerCMPLow32RegOffset = 16; 
-    localparam int unsigned mTimerCMPHigh32RegOffset = 20;
+    localparam int unsigned mTimerCMPLow32RegOffset = 12; 
+    localparam int unsigned mTimerCMPHigh32RegOffset = 16;
 
     logic [DATA_WIDTH-1:0] counter_low;
     logic [DATA_WIDTH-1:0] counter_high;
@@ -147,12 +147,12 @@ module obi_timer #(
     always_comb begin 
         obi_rdata_o = '0; // Default to zero
         if(rd_en) begin
-            case(obi_aaddr_i)
-                mTimerConfRegOffset: obi_rdata_o = {{(DATA_WIDTH-NUM_OUT){1'b0}}, timer_conf}; // Zero-extend timer config register
-                mTimerCMPLow32RegOffset: obi_rdata_o = {{(DATA_WIDTH-DATA_WIDTH){1'b0}}, compare_low}; // Zero-extend compare low register
-                mTimerCMPHigh32RegOffset: obi_rdata_o = {{(DATA_WIDTH-DATA_WIDTH){1'b0}}, compare_high}; // Zero-extend compare high register
-                mTimerLow32RegOffset: obi_rdata_o = {{(DATA_WIDTH-DATA_WIDTH){1'b0}}, counter_low}; // Zero-extend counter low register
-                mTimerHigh32RegOffset: obi_rdata_o = {{(DATA_WIDTH-DATA_WIDTH){1'b0}}, counter_high}; // Zero-extend counter high register
+            case(obi_aaddr_i[6:0])
+                mTimerConfRegOffset: obi_rdata_o =  timer_conf; // Zero-extend timer config register
+                mTimerCMPLow32RegOffset: obi_rdata_o = compare_low; // Zero-extend compare low register
+                mTimerCMPHigh32RegOffset: obi_rdata_o =  compare_high; // Zero-extend compare high register
+                mTimerLow32RegOffset: obi_rdata_o =  counter_low; // Zero-extend counter low register
+                mTimerHigh32RegOffset: obi_rdata_o =  counter_high; // Zero-extend counter high register
                 default: obi_rdata_o = '0; // Default to zero for unmapped addresses
             endcase
         end 
@@ -183,7 +183,7 @@ module obi_timer #(
     always_comb begin 
         obi_rerr_o = 1'b0; // Default to no error
         if (state == RESP) begin // Only check for read errors during response phase for read transactions
-            case(obi_aaddr_i)
+            case(obi_aaddr_i[6:0])
                 mTimerConfRegOffset, mTimerCMPLow32RegOffset, mTimerCMPHigh32RegOffset, mTimerLow32RegOffset, mTimerHigh32RegOffset: obi_rerr_o = 1'b0; // Valid addresses
                 default: obi_rerr_o = 1'b1; // Invalid address
             endcase
@@ -192,47 +192,27 @@ module obi_timer #(
 
 endmodule
 
-module register
-#(
-    parameter type DTYPE = logic,
-    parameter DTYPE RESET_VALUE = 0
-)
-(
-    input  logic clk,
-    input  logic rstn,
-    input  logic ce,   // clock-enable
-    input  DTYPE in,
-    output DTYPE out
+
+// -----------------------------------------------------------------------------
+// Instantiation template: obi_timer
+// -----------------------------------------------------------------------------
+/*
+obi_timer #(
+    .ADDR_WIDTH(32),
+    .DATA_WIDTH(32)
+) i_obi_timer (
+    .clk_i       (),
+    .rstn_i      (),
+    .obi_areq_i  (),
+    .obi_agnt_o  (),
+    .obi_aaddr_i (),
+    .obi_awdata_i(),
+    .obi_awe_i   (),
+    .obi_abe_i   (),
+    .obi_rvalid_o(),
+    .obi_rready_i(obi_rready_i),
+    .obi_rdata_o (obi_rdata_o),
+    .obi_rerr_o  (obi_rerr_o),
+    .overflow_o  (overflow_o)
 );
-
-    always_ff @(posedge clk) begin
-        if (~rstn)
-            out <= RESET_VALUE;
-        else if (ce)
-            out <= in;
-    end
-endmodule
-
-
-module cntr #(
-    parameter int WORD_WIDTH = 32,
-    parameter logic [WORD_WIDTH-1:0] RESET_VALUE = 0
-)(
-    input  logic clk,
-    input  logic rstn,
-    input  logic ce,
-    output logic [WORD_WIDTH-1:0] count
-);
-    logic [WORD_WIDTH-1:0] plus_one;
-    register #(
-        .DTYPE(logic [WORD_WIDTH-1:0]),
-        .RESET_VALUE(RESET_VALUE)
-    ) rvfi_order_reg (
-        .clk (clk),
-        .rstn(rstn),
-        .ce  (ce),
-        .in  (plus_one),
-        .out (count)
-    );
-    assign plus_one = count + 1'b1;
-endmodule
+*/

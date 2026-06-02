@@ -1,16 +1,16 @@
 {
   "extensionVersion": "1.5.3",
   "fileName": "c:\\Users\\ratko\\Documents\\RVJ1\\obi_timer\\sim\\tb_obi_timer.vcd",
-  "markerTime": 7250,
+  "markerTime": 2300,
   "altMarkerTime": null,
   "displayTimeUnit": "ps",
   "selectedSignal": {
-    "name": "tb_obi_timer.dut.cnt_reg",
-    "msb": 63,
-    "lsb": 0
+    "name": "tb_obi_timer.dut.obi_areq_i",
+    "msb": -1,
+    "lsb": -1
   },
-  "zoomRatio": 0.13044444986979167,
-  "scrollLeft": 188,
+  "zoomRatio": 0.2244,
+  "scrollLeft": 0,
   "defaultPixelTime": 1000,
   "displayedSignals": [
     {
@@ -127,7 +127,7 @@
     {
       "dataType": "signal-group",
       "groupName": "RESP",
-      "collapseState": 1,
+      "collapseState": 2,
       "children": [
         {
           "dataType": "netlist-variable",
