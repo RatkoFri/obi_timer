@@ -97,9 +97,9 @@ module obi_timer #(
 
     // BEGIN: OBI write interface
     
-    assign wr_en[0] = state == ADDR & obi_awe_i & (obi_aaddr_i[6:0] == mTimerConfRegOffset); // Needs to ensure write request is valid and handshake occured in address phase
-    assign wr_en[1] = state == ADDR & obi_awe_i & (obi_aaddr_i[6:0] == mTimerCMPLow32RegOffset); // Write enable for compare low register
-    assign wr_en[2] = state == ADDR & obi_awe_i & (obi_aaddr_i[6:0] == mTimerCMPHigh32RegOffset); // Write enable for compare high register
+    assign wr_en[0] = obi_a_fire & obi_awe_i & (obi_aaddr_i[6:0] == mTimerConfRegOffset); // Needs to ensure write request is valid and handshake occured in address phase
+    assign wr_en[1] = obi_a_fire & obi_awe_i & (obi_aaddr_i[6:0] == mTimerCMPLow32RegOffset); // Write enable for compare low register
+    assign wr_en[2] = obi_a_fire & obi_awe_i & (obi_aaddr_i[6:0] == mTimerCMPHigh32RegOffset); // Write enable for compare high register
 
     assign write_data_mask = {{8{obi_abe_i[3]}},{8{obi_abe_i[2]}},{8{obi_abe_i[1]}},{8{obi_abe_i[0]}}}; 
 
@@ -143,7 +143,7 @@ module obi_timer #(
     // END: OBI write interface
 
     // BEGIN: OBI read interface
-    assign rd_en = state == ADDR & !obi_awe_i ; 
+    assign rd_en = obi_a_fire & !obi_awe_i ; 
 
     always_comb begin 
         read_data_mux_out = '0; // Default to zero
@@ -231,5 +231,7 @@ obi_timer #(
     .overflow_o  ()
 );
 */
+
+s
 
 
