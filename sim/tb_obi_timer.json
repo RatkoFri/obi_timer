@@ -1,16 +1,16 @@
 {
   "extensionVersion": "1.5.3",
   "fileName": "c:\\Users\\ratko\\Documents\\RVJ1\\obi_timer\\sim\\tb_obi_timer.vcd",
-  "markerTime": 2300,
+  "markerTime": 950,
   "altMarkerTime": null,
   "displayTimeUnit": "ps",
   "selectedSignal": {
-    "name": "tb_obi_timer.dut.obi_areq_i",
+    "name": "tb_obi_timer.dut.obi_rvalid_o",
     "msb": -1,
     "lsb": -1
   },
-  "zoomRatio": 0.2244,
-  "scrollLeft": 0,
+  "zoomRatio": 0.22440000000000002,
+  "scrollLeft": 2384,
   "defaultPixelTime": 1000,
   "displayedSignals": [
     {
@@ -28,7 +28,7 @@
     },
     {
       "dataType": "netlist-variable",
-      "netlistId": 32,
+      "netlistId": 31,
       "name": "tb_obi_timer.dut.rstn_i",
       "numberFormat": "binary",
       "colorIndex": 0,
@@ -131,7 +131,7 @@
       "children": [
         {
           "dataType": "netlist-variable",
-          "netlistId": 30,
+          "netlistId": 29,
           "name": "tb_obi_timer.dut.obi_rvalid_o",
           "numberFormat": "binary",
           "colorIndex": 0,
@@ -144,7 +144,7 @@
         },
         {
           "dataType": "netlist-variable",
-          "netlistId": 29,
+          "netlistId": 28,
           "name": "tb_obi_timer.dut.obi_rready_i",
           "numberFormat": "binary",
           "colorIndex": 0,
@@ -157,7 +157,7 @@
         },
         {
           "dataType": "netlist-variable",
-          "netlistId": 53,
+          "netlistId": 50,
           "name": "tb_obi_timer.dut.obi_rerr_o",
           "numberFormat": "binary",
           "colorIndex": 0,
@@ -170,7 +170,7 @@
         },
         {
           "dataType": "netlist-variable",
-          "netlistId": 52,
+          "netlistId": 36,
           "name": "tb_obi_timer.dut.obi_rdata_o",
           "numberFormat": "hexadecimal",
           "colorIndex": 0,
@@ -190,7 +190,7 @@
       "children": [
         {
           "dataType": "netlist-variable",
-          "netlistId": 35,
+          "netlistId": 34,
           "name": "tb_obi_timer.dut.state",
           "numberFormat": "binary",
           "colorIndex": 0,
@@ -205,7 +205,7 @@
     },
     {
       "dataType": "netlist-variable",
-      "netlistId": 36,
+      "netlistId": 35,
       "name": "tb_obi_timer.dut.overflow_o",
       "numberFormat": "binary",
       "colorIndex": 0,
@@ -257,7 +257,7 @@
     },
     {
       "dataType": "netlist-variable",
-      "netlistId": 34,
+      "netlistId": 33,
       "name": "tb_obi_timer.dut.timer_conf",
       "numberFormat": "hexadecimal",
       "colorIndex": 0,

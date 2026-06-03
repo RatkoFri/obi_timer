@@ -54,7 +54,7 @@ module obi_timer #(
 
     // Read interface signals
     logic rd_en;
-
+    logic [DATA_WIDTH-1:0] read_data_mux_out;
 
     // BEGIN: OBI wrapper
     register  #(
@@ -71,6 +71,7 @@ module obi_timer #(
 
     assign obi_a_fire = obi_areq_i && obi_agnt_o;
     assign obi_r_fire = obi_rready_i && obi_rvalid_o;
+
 
     // State transition logic
     always_comb begin : OBI_SLAVE_next_state
@@ -142,21 +143,35 @@ module obi_timer #(
     // END: OBI write interface
 
     // BEGIN: OBI read interface
-    assign rd_en = state == RESP & !obi_awe_i ; 
+    assign rd_en = state == ADDR & !obi_awe_i ; 
 
     always_comb begin 
-        obi_rdata_o = '0; // Default to zero
+        read_data_mux_out = '0; // Default to zero
         if(rd_en) begin
             case(obi_aaddr_i[6:0])
-                mTimerConfRegOffset: obi_rdata_o =  timer_conf; // Zero-extend timer config register
-                mTimerCMPLow32RegOffset: obi_rdata_o = compare_low; // Zero-extend compare low register
-                mTimerCMPHigh32RegOffset: obi_rdata_o =  compare_high; // Zero-extend compare high register
-                mTimerLow32RegOffset: obi_rdata_o =  counter_low; // Zero-extend counter low register
-                mTimerHigh32RegOffset: obi_rdata_o =  counter_high; // Zero-extend counter high register
-                default: obi_rdata_o = '0; // Default to zero for unmapped addresses
+                mTimerConfRegOffset: read_data_mux_out =  timer_conf; // Zero-extend timer config register
+                mTimerCMPLow32RegOffset: read_data_mux_out = compare_low; // Zero-extend compare low register
+                mTimerCMPHigh32RegOffset: read_data_mux_out =  compare_high; // Zero-extend compare high register
+                mTimerLow32RegOffset: read_data_mux_out =  counter_low; // Zero-extend counter low register
+                mTimerHigh32RegOffset: read_data_mux_out =  counter_high; // Zero-extend counter high register
+                default: read_data_mux_out = '0; // Default to zero for unmapped addresses
             endcase
         end 
     end
+
+    // register to hold read data 
+    register  #(
+        .DTYPE(logic [DATA_WIDTH-1:0]),
+        .RESET_VALUE('0)     
+    ) read_data_reg
+        (
+        .clk(clk_i),
+        .rstn(rstn_i),
+        .ce(obi_a_fire), // Capture read data at the moment of valid response and master ready handshake
+        .in(read_data_mux_out),
+        .out(obi_rdata_o)
+    );
+
 
 
     // END: logic for OBI read interface
@@ -216,3 +231,5 @@ obi_timer #(
     .overflow_o  (overflow_o)
 );
 */
+
+
