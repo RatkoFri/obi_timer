@@ -5,12 +5,12 @@
   "altMarkerTime": null,
   "displayTimeUnit": "ps",
   "selectedSignal": {
-    "name": "tb_obi_timer.dut.obi_rvalid_o",
+    "name": "tb_obi_timer.dut.obi_rerr_o",
     "msb": -1,
     "lsb": -1
   },
-  "zoomRatio": 0.22440000000000002,
-  "scrollLeft": 2384,
+  "zoomRatio": 0.6124444661458334,
+  "scrollLeft": 542,
   "defaultPixelTime": 1000,
   "displayedSignals": [
     {
@@ -186,7 +186,7 @@
     {
       "dataType": "signal-group",
       "groupName": "FSM",
-      "collapseState": 1,
+      "collapseState": 2,
       "children": [
         {
           "dataType": "netlist-variable",

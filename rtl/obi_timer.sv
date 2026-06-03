@@ -225,10 +225,10 @@ obi_timer #(
     .obi_awe_i   (),
     .obi_abe_i   (),
     .obi_rvalid_o(),
-    .obi_rready_i(obi_rready_i),
-    .obi_rdata_o (obi_rdata_o),
-    .obi_rerr_o  (obi_rerr_o),
-    .overflow_o  (overflow_o)
+    .obi_rready_i(),
+    .obi_rdata_o (),
+    .obi_rerr_o  (),
+    .overflow_o  ()
 );
 */
 
