@@ -96,9 +96,9 @@ module obi_timer #(
 
     // BEGIN: OBI write interface
     
-    assign wr_en[0] = state == RESP & obi_awe_i & (obi_aaddr_i[6:0] == mTimerConfRegOffset); // Needs to ensure write request is valid and handshake occured in address phase
-    assign wr_en[1] = state == RESP & obi_awe_i & (obi_aaddr_i[6:0] == mTimerCMPLow32RegOffset); // Write enable for compare low register
-    assign wr_en[2] = state == RESP & obi_awe_i & (obi_aaddr_i[6:0] == mTimerCMPHigh32RegOffset); // Write enable for compare high register
+    assign wr_en[0] = state == ADDR & obi_awe_i & (obi_aaddr_i[6:0] == mTimerConfRegOffset); // Needs to ensure write request is valid and handshake occured in address phase
+    assign wr_en[1] = state == ADDR & obi_awe_i & (obi_aaddr_i[6:0] == mTimerCMPLow32RegOffset); // Write enable for compare low register
+    assign wr_en[2] = state == ADDR & obi_awe_i & (obi_aaddr_i[6:0] == mTimerCMPHigh32RegOffset); // Write enable for compare high register
 
     assign write_data_mask = {{8{obi_abe_i[3]}},{8{obi_abe_i[2]}},{8{obi_abe_i[1]}},{8{obi_abe_i[0]}}}; 
 
